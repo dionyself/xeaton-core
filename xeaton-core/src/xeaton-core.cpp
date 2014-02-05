@@ -16,6 +16,7 @@
 #include <iostream>
 #include <fstream>
 #include <stdlib.h>
+#include "content.h"
 using namespace std;
 
 class UserSite : public cppcms::application {
@@ -55,8 +56,9 @@ class MainSite : public cppcms::application {
   }
 
   void smile() {
-    response().out() << ":-) <br/>\n";
-    response().out() << "<a href='" << url("/") << "'>Go back</a>";
+	    content::message c;
+	    c.text=">>>Hello<<<";
+	    render("message",c);
   }
 
   void welcome() {
